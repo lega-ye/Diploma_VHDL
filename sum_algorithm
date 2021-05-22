@@ -1,0 +1,27 @@
+library ieee; 
+use ieee.std_logic_1164.all;
+	entity sum_algorithm is
+	port(setup: in std_logic; 
+		 ready: out std_logic; 
+		 result: out integer ); 
+	end sum_algorithm;
+
+architecture structure of sum_algorithm is
+	begin  
+		process(setup) 
+		variable d: integer; 
+		variable sum: integer; 
+	begin 
+		if (setup = '0') 
+		then ready <= '0'; 
+			 result <= 0; 
+		else sum := 0; 
+			 d := 12;
+	for i in d downto 1 
+	loop sum := sum + i; 
+	end loop; 
+		ready <= '1'; 
+		result <= sum; 
+		end if; 
+		end process;   
+end structure;
